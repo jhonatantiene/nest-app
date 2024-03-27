@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as csv from 'csv-parser';
 
 @Injectable()
-export class AppService {
+export class ProcessFileService {
   async fileCSV(path: string): Promise<any[]> {
     let file = [];
     try {
