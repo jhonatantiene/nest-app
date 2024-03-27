@@ -17,4 +17,15 @@ export class AppController {
     const calc = this.Metrics.calculateYearlyMetrics(responseProcess)
     return calc;
   }
+
+
+  @Post('fileXlsx')
+  @UseInterceptors(FileInterceptor('file'))
+  async uploadXLSX(@UploadedFile() file: Express.Multer.File): Promise<any[]> {
+    let pathTemp = 'ArquivoTemporario.csv';
+    fs.writeFileSync(pathTemp, file.buffer);
+    const responseProcess = await this.Process.fileXLSX(pathTemp);
+    const calc = this.Metrics.calculateYearlyMetrics(responseProcess)
+    return calc;
+  }
 }
