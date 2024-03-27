@@ -14,7 +14,6 @@ export class ProcessFileService {
     } finally {
       fs.unlinkSync(path);
     }
-    console.log(file[0]);
     return file;
   }
 
@@ -42,7 +41,6 @@ export class ProcessFileService {
     } finally {
       fs.unlinkSync(path);
     }
-    console.log(file);
     return file;
   }
 
